@@ -9,3 +9,9 @@ variable "recipients" {
   description = "Configuration options for Delta Sharing Recipients"
   default     = []
 }
+
+variable "workspace_url" {
+  type        = string
+  description = "Azure Databricks Workspace URL"
+  default     = null
+}

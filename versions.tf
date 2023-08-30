@@ -6,5 +6,9 @@ terraform {
       source  = "databricks/databricks"
       version = ">=1.21.0"
     }
+    http = {
+      source  = "hashicorp/http"
+      version = ">=3.4.0"
+    }
   }
 }
