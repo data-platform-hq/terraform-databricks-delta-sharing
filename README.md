@@ -55,6 +55,7 @@ module "delta_sharing" {
 | Name | Description | Type | Default                                                                                                                                               | Required |
 |------|-------------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
 | <a name="input_recipients"></a> [recipients](#input\_recipients)| Configuration options for Delta Sharing Recipients | <pre>list(object({<br>  name                               = string<br>  authentication_type                = string<br>  comment                            = optional(string)<br>  data_recipient_global_metastore_id = optional(string)<br>  ip_access_list                     = optional(list(string))<br>}))</pre> | []| no |
+| <a name="input_workspace_url"></a> [workspace\_url](#input\_workspace\_url)| Azure Databricks Workspace URL | `string` | null | no |
 
 
 ## Modules
@@ -66,14 +67,15 @@ No modules.
 | Name                                                                                                                                                                | Type     |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | [databricks_recipient.this](https://registry.terraform.io/providers/databricks/databricks/latest/docs/resources/recipient)| resource |
+| [data.http.this](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http)| data |
 
 
 
 ## Outputs
 
-| Name                                                                                | Description                                          |
-|-------------------------------------------------------------------------------------| ---------------------------------------------------- |
-| <a name="output_activation_urls"></a> [activation\_urls](#output\_activation\_urls) | List of objects with parameters Delta Share Recipient Name and it's one-time activation url with access token.|
+| Name                                                                                                    | Description                                                                                   |
+|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| <a name="output_delta_recipient_token"></a> [delta\_recipient\_token](#output\_delta\_recipient\_token) | List of objects with Delta Share Recipient Name and it's one-time credentials access token.   |
 
 
 <!-- END_TF_DOCS -->

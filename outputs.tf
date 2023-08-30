@@ -1,7 +1,7 @@
-output "activation_urls" {
-  description = "List of objects with parameters Delta Share Recipient Name and it's one-time activation url with access token. "
-  value = [for k, v in local.recipients_mapped : {
-    name           = k,
-    activation_url = databricks_recipient.this[k].tokens[0].activation_url
-  } if v.authentication_type == "TOKEN"]
+output "delta_recipient_token" {
+  description = "List of objects with Delta Share Recipient Name and it's one-time credentials access token. "
+  value = [for k, v in local.recipients_token_only_mapped : {
+    name             = k,
+    activation_token = data.http.this[k].response_body
+  }]
 }
